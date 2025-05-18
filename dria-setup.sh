@@ -145,7 +145,7 @@ EOF
   cat >.env <<EOF
 ## DRIA ##
 DKN_WALLET_SECRET_KEY=$PRIVATE_KEY
-DKN_MODELS=llama3.3:70b-instruct-q4_K_M,llama3.1:8b-instruct-q4_K_M
+DKN_MODELS=llama3.1:8b-instruct-q4_K_M
 DKN_P2P_LISTEN_ADDR=/ip4/0.0.0.0/tcp/4001
 DKN_RELAY_NODES=
 DKN_BOOTSTRAP_NODES=
