@@ -12,7 +12,21 @@ Berikan izin eksekusi pada script dria.sh:
 ```
 chmod +x ./dria-setup.sh
 ```
-Jalankan script dengan akses sudo:
+* Jalankan script dengan akses sudo:
 ```
-sudo ./dria-setup.sh
+sudo ./dria-setup.sh setup --count 1
+```
+* Upgrade
+```
+docker-compose down --remove-orphans
+```
+```
+docker system prune -a
+```
+```
+docker network create --subnet=10.173.1.0/24 dria-network
+
+```
+```
+docker-compose up -d
 ```
