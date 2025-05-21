@@ -69,7 +69,7 @@ setup_docker_network() {
 setup_node() {
   local i=$1
   local DIR="dkn-compute-node-$i"
-  local PORT=$((11433 + i))
+  local PORT=$((11434 + i))
 
   echo "🔧 Setup node $i di folder $DIR (PORT: $PORT)..."
 
@@ -90,7 +90,7 @@ http {
         listen $PORT;
 
         location / {
-            proxy_pass http://10.173.1.1:11433;
+            proxy_pass http://10.173.1.1:11434;
             proxy_http_version 1.1;
             proxy_set_header Host \$host;
             proxy_set_header X-Real-IP \$remote_addr;
@@ -145,7 +145,7 @@ EOF
   cat >.env <<EOF
 ## DRIA ##
 DKN_WALLET_SECRET_KEY=$PRIVATE_KEY
-DKN_MODELS=llama3.1:8b-instruct-q4_K_M
+DKN_MODELS=llama3.1:8b-instruct-q4_K_M,llama3.3:70b-instruct-q4_K_M
 DKN_P2P_LISTEN_ADDR=/ip4/0.0.0.0/tcp/4001
 DKN_RELAY_NODES=
 DKN_BOOTSTRAP_NODES=
