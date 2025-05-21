@@ -6,7 +6,39 @@ Dria is the universal execution layer for AI: optimizing every model, on any eng
 Daftar vikey
 
 https://vikey.ai/user/api/keys
+
+### Setup vikey
+```
+git clone https://github.com/Dwentzart/Dria
+cd dria
+```
+```
+chmod +× vikey-inference-linux
+```
+* nano .env
+```
+VIKEY_API_KEY=
+NODE_PORT=11434
+```
+```
+nano /etc/systemd/system/vikey.service
+```
+* masukan ini
+```
+[Unit]
+Description=Vikey Inference Server
+After=network.target
+[Service]
+ExecStart=/root/dria/vikey-inference-linux
+WorkingDirectory=/root/dria
+Restart=always
+User=root
+Environment=NODE_ENV=production
+[Install]
+WantedBy=multi-user.target
+```
 ### Runing menggunakan Vikey
+
 Berikan izin eksekusi pada script dria.sh:
 
 ```
